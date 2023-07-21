@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('vans', function (Blueprint $table) {
             $table->id();
+
+            $table->string('brand');
+            $table->string('model');
+            $table->year('built_in_year');
+            $table->text('description');
+            $table->string('plate');
+
+
+
+
             $table->timestamps();
         });
     }
