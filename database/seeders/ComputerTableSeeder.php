@@ -34,8 +34,8 @@ class ComputerTableSeeder extends Seeder
             }
 
             Computer::create([
-                'brand ' => $faker->company(),
-                'type ' => $type,
+                'brand' => $faker->company(),
+                'type' => $type,
                 'cooling' => $cooling,
                 'price' => $faker->randomFloat(2, 350, 5000),
                 'release_date' => $faker->date(),
