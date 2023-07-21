@@ -16,8 +16,9 @@
 </head>
 
 <body>
-
-    <h1>Team Ipsem prova branch merge!</h1>
+    @foreach ($computers as $computer)
+    <h1>{{ $computer -> brand }}</h1>
+    @endforeach
 </body>
 
 </html>
