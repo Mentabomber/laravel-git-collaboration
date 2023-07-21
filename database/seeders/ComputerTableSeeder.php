@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+
+use App\Models\Computer;
 
 class ComputerTableSeeder extends Seeder
 {
@@ -12,23 +15,31 @@ class ComputerTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         for ($i = 0; $i < 10; $i++) {
 
-            Computer::create([
-                'brand ' => fake()->company(),
-                'type ' => fake()->randomElement([
-                    'Laptop',
-                    'Desktop'
-                ]),
-                'cooling' => fake()->randomElement([
+            $type = $faker->randomElement([
+                'Laptop',
+                'Desktop'
+            ]);
+
+            if($type == 'Laptop') {
+                $cooling = 'Air';
+            } else {
+                $cooling = $faker->randomElement([
                     'Liquid',
                     'Air'
-                ]),
-                'price' => fake()->randomFloat(2, 350, 5000),
-                'release_date' => fake()->date(),
-                'description' => fake()->text()
+                ]);
+            }
+
+            Computer::create([
+                'brand ' => $faker->company(),
+                'type ' => $type,
+                'cooling' => $cooling,
+                'price' => $faker->randomFloat(2, 350, 5000),
+                'release_date' => $faker->date(),
+                'description' => $faker->text()
 
             ]);
         }
