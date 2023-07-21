@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
 
             $table->string("brand");
-            // type
-            // cooling
-            // price
-            // release_date
-            // description
+            $table->string("type", 10);
+            $table->string("cooling", 10);
+            $table->float("price", 2);
+            $table->date("release_date");
+            $table->text("description");
 
 
             $table->timestamps();
