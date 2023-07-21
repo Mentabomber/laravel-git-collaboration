@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("brand");
             $table->string("type", 10);
             $table->string("cooling", 10);
-            $table->float("price", 2);
+            $table->decimal('price', $precision = 6, $scale = 2);
             $table->date("release_date");
             $table->text("description");
 
